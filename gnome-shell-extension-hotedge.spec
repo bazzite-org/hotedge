@@ -15,6 +15,7 @@ BuildRequires: make
 BuildRequires: unzip
 BuildRequires: gettext
 BuildRequires: gnome-shell
+BuildRequires: glib2
 
 Requires:    gnome-shell >= 3.12
 %description
@@ -22,6 +23,9 @@ A GNOME Shell extension that adds a hot edge that activates the overview to the 
 
 %prep
 %autosetup -n hotedge-main
+
+%build
+glib-compile-schemas schemas/
 
 %install
 make install
