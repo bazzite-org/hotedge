@@ -24,13 +24,11 @@ A GNOME Shell extension that adds a hot edge that activates the overview to the 
 %prep
 %autosetup -n hotedge-main
 
-%build
-glib-compile-schemas schemas/
-
 %install
 make install
 mkdir -p %{buildroot}%{_datadir}/gnome-shell/extensions/%{uuid}
 unzip build/%{uuid}.shell-extension.zip -d %{buildroot}%{_datadir}/gnome-shell/extensions/%{uuid}
+glib-compile-schemas %{buildroot}%{_datadir}/gnome-shell/extensions/%{uuid}/schemas/
 
 %files
 %{_datadir}/gnome-shell/extensions/%{uuid}/
